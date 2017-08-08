@@ -1,0 +1,54 @@
+package me.samfreeman.sorting;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+
+public class InsertionSort1 {
+	
+	static BufferedReader in;
+	static PrintStream out;
+
+	public static void main(String[] args) throws IOException {
+		in = new BufferedReader(new InputStreamReader(System.in));
+		out = new PrintStream(System.out);
+		complete();
+		out.close();
+	}
+
+	static void complete() throws IOException {
+		int s = Integer.parseInt(in.readLine());
+		int[] arr = new int[s];
+		String[] input = in.readLine().split(" ");
+		int e = 0;
+		for (int i = 0; i < s; i++) {
+			if (i == s-1) e = Integer.parseInt(input[i]);
+			else arr[i] = Integer.parseInt(input[i]);
+		}
+		
+		for (int i = s-2; i >= 0; i--) {
+			if (arr[i] > e) continue; 
+			else {
+				// shift all right
+				for (int j = i; j < s-1; j++) {
+					printarr(arr);
+					arr[j] = arr[i];
+				}
+				// insert e
+				arr[i] = e;
+			}
+		}
+		
+		
+		
+		
+	}
+	static void printarr(int[] arr) {
+		 for(int n: arr){
+	         out.print(n+" ");
+	      }
+	        out.println("");
+	}
+	
+}
