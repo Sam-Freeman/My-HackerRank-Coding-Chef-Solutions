@@ -1,0 +1,21 @@
+package me.samfreeman.java.strings;
+
+import java.util.Scanner;
+
+public class StringReverse_Palindrome {
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		String A = sc.next();
+		sc.close();
+		char[] B = A.toCharArray();
+		boolean working = true;
+		for (int i = 0; i < A.length() / 2; i++) {
+			if (B[i] != B[A.length() - i - 1])
+				working = false;
+		}
+
+		System.out.println((working) ? "Yes" : "No");
+		
+	}
+}
