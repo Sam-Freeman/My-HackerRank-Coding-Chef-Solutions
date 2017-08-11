@@ -1,0 +1,15 @@
+package me.samfreeman.java.strings;
+
+import java.util.Scanner;
+
+public class TagContentExtractor {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int testCases = Integer.parseInt(in.nextLine());
+		while (testCases-- > 0) {
+			String line = in.nextLine();
+			
+			String tag = "[\\x00\\x08\\x0B\\x0C\\x0E-\\x1F]";
+		}
+	}
+}
