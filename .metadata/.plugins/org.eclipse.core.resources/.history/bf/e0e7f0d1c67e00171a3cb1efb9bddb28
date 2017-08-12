@@ -1,0 +1,19 @@
+package me.samfreeman.java.DataStructures;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+
+public class JavaMap {
+	
+	static BufferedReader in;
+	static PrintStream out;
+	
+	public static void main(String[] args) {
+		in = new BufferedReader(new InputStreamReader(System.in));
+		out = new PrintStream(System.out);
+		
+		out.close();
+	}
+	
+}

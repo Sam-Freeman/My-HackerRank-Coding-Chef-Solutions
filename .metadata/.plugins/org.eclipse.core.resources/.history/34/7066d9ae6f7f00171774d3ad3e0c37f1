@@ -1,0 +1,32 @@
+package me.samfreeman.java.DataStructures;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.BitSet;
+
+public class JavaBitset {
+	static BufferedReader in;
+	static PrintStream out;
+	
+	public static void main(String[] args) throws IOException {
+		in = new BufferedReader(new InputStreamReader(System.in));
+		out = new PrintStream(System.out);
+		
+		String[] nm = in.readLine().split(" ");
+		int n = Integer.parseInt(nm[0]);
+		int m = Integer.parseInt(nm[1]);
+		
+		BitSet b1 = new BitSet(n);
+		BitSet b2 = new BitSet(n);
+		
+		for (int i = 0; i < m; i++) {
+			String[] inpt = in.readLine().split(" ");
+			
+		}
+		
+		out.close();
+	}
+	
+}
