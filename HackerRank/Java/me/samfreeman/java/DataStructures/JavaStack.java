@@ -1,0 +1,32 @@
+package me.samfreeman.java.DataStructures;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.Stack;
+
+public class JavaStack {
+	static BufferedReader in;
+	static PrintStream out;
+	
+	public static void main(String[] args) throws IOException {
+		in = new BufferedReader(new InputStreamReader(System.in));
+		out = new PrintStream(System.out);
+		
+		String currentIn;
+		while ((currentIn = in.readLine()) != null) {
+			// Reads to EOF
+			
+			Stack<String> st = new Stack<String>();
+			for (int i = 0; i < currentIn.length(); i++) {
+				st.add(currentIn.split("")[i]);
+			}
+			
+			
+		}
+		
+		out.close();
+	}
+	
+}

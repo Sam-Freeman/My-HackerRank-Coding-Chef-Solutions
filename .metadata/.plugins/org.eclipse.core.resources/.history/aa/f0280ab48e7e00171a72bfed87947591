@@ -1,0 +1,10 @@
+package me.samfreeman.java.DataStructures;
+
+public class JavaArrayList {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		
+	}
+	
+}

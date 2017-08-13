@@ -1,0 +1,40 @@
+package me.samfreeman.java.DataStructures;
+
+import java.util.Scanner;
+
+public class Java1DArray_Part2 {
+
+	public static boolean canWin(int leap, int[] game) {
+
+		int pos = 0;
+		while (true) {
+			if (pos + leap > game.length - 1 || pos + 1 > game.length - 1) {
+				return true;
+			}
+			if (game[pos + leap] == 0)
+				pos += leap;
+			if (game[pos + 1] == 0)
+				pos++;
+			else
+				break;
+		}
+		return false;
+	}
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int q = scan.nextInt();
+		while (q-- > 0) {
+			int n = scan.nextInt();
+			int leap = scan.nextInt();
+
+			int[] game = new int[n];
+			for (int i = 0; i < n; i++) {
+				game[i] = scan.nextInt();
+			}
+
+			System.out.println((canWin(leap, game)) ? "YES" : "NO");
+		}
+		scan.close();
+	}
+}
