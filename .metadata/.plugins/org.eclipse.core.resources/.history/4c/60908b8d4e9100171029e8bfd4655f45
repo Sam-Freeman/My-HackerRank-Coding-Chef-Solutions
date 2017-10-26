@@ -1,0 +1,19 @@
+package me.samfreeman.SeptemberLong;
+
+import java.util.Collections;
+import java.util.List;
+
+public class MINPERM {
+	static void permute(List<Integer> arr, int loc) {
+		for (int i = 0; i < arr.size(); i++) {
+			Collections.swap(arr, i, loc);
+			permute(arr, loc+1);
+			Collections.swap(arr, loc, i);
+		}
+		if (loc == arr.size() - 1)
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,97 @@
+package me.samfreeman.java.DataStructures;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+class Priorities {
+
+	List<Student> getStudents(List<String> events) {
+
+		PriorityQueue<Student> current = new PriorityQueue<>(new Comparator<Student>() {
+
+			@Override
+			public int compare(Student o1, Student o2) {
+				if (o2.getCGPA() == o1.getCGPA()) {
+					if (o2.getName().equals(o1.getName())) {
+
+						return o2.getID() - o1.getID();
+					}
+					return o1.getName().compareTo(o2.getName());
+				}
+				return (o2.getCGPA() > o1.getCGPA()) ? 1 : -1;
+			}
+
+		});
+		for (int i = 0; i < events.size(); i++) {
+			if (events.get(i).split(" ")[0].equals("ENTER")) {
+				String cName = events.get(i).split(" ")[1];
+				double cCGPA = Double.parseDouble(events.get(i).split(" ")[2]);
+				int cID = Integer.parseInt(events.get(i).split(" ")[3]);
+				current.add(new Student(cID, cName, cCGPA));
+			} else {
+				current.poll();
+			}
+		}
+		int max = current.size();
+		List<Student> left = new ArrayList<>();
+		for (int x = 0; x < max; x++) {
+			System.out.println(x);
+			left.add(current.poll());
+		}
+		return left;
+	}
+
+}
+
+class Student {
+	int id;
+	String name;
+	double cgpa;
+
+	Student(int id, String name, double cgpa) {
+		this.id = id;
+		this.name = name;
+		this.cgpa = cgpa;
+	}
+
+	int getID() {
+		return id;
+	}
+
+	String getName() {
+		return name;
+	}
+
+	double getCGPA() {
+		return cgpa;
+	}
+}
+
+// Provided Code
+public class JavaPriorityQueue {
+	private final static Scanner scan = new Scanner(System.in);
+	private final static Priorities priorities = new Priorities();
+
+	public static void main(String[] args) {
+		int totalEvents = Integer.parseInt(scan.nextLine());
+		List<String> events = new ArrayList<>();
+
+		while (totalEvents-- != 0) {
+			String event = scan.nextLine();
+			events.add(event);
+		}
+
+		List<Student> students = priorities.getStudents(events);
+
+		if (students.isEmpty()) {
+			System.out.println("EMPTY");
+		} else {
+			for (Student st : students) {
+				System.out.println(st.getName());
+			}
+		}
+	}
+}
