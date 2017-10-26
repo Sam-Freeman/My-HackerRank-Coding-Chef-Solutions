@@ -14,6 +14,7 @@ public class JavaStack {
 		in = new BufferedReader(new InputStreamReader(System.in));
 		out = new PrintStream(System.out);
 		
+<<<<<<< HEAD
 		String currentIn;
 		while ((currentIn = in.readLine()) != null) {
 			// Reads to EOF
@@ -24,9 +25,41 @@ public class JavaStack {
 			}
 			
 			
+=======
+		String inpt;
+		while ((inpt = in.readLine()) != null) {
+			Stack<Character> stack = new Stack<>();
+			for (int i = 0; i < inpt.length(); i++) {
+				if (!stack.isEmpty()) {
+					switch (inpt.charAt(i)) {
+					case '}':
+						if (stack.peek() == '{')
+							stack.pop();
+						break;
+					case ']':
+						if (stack.peek() == '[')
+							stack.pop();
+						break;
+					case ')':
+						if (stack.peek() == '(')
+							stack.pop();
+						break;
+					default:
+						stack.push(inpt.charAt(i));
+						break;
+					}
+				} else {
+					stack.push(inpt.charAt(i));
+				}
+			}
+			out.println(stack.isEmpty());
+>>>>>>> refs/remotes/origin/Desktop
 		}
 		
 		out.close();
 	}
+<<<<<<< HEAD
 	
+=======
+>>>>>>> refs/remotes/origin/Desktop
 }

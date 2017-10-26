@@ -11,6 +11,7 @@ class Printer {
 	}
 }
 
+// Provided Code
 public class JavaGenerics {
 	public static void main(String args[]) {
 		Printer myPrinter = new Printer();

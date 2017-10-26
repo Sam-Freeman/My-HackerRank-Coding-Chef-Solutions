@@ -1,0 +1,7 @@
+package me.samfreeman.SeptemberLong;
+
+public class MINPERM {
+	static void permute(List<Integer> arr, int loc) {
+		
+	}
+}

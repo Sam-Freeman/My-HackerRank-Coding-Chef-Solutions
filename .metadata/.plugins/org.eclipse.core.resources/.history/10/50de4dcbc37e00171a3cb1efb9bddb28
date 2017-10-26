@@ -1,0 +1,12 @@
+package me.samfreeman.java.DataStructures;
+
+import java.io.BufferedReader;
+import java.io.PrintStream;
+
+public class JavaList {
+	static BufferedReader in;
+	static PrintStream out;
+	
+	
+	
+}

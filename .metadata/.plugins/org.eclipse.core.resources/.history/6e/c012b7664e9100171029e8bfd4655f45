@@ -1,0 +1,13 @@
+package me.samfreeman.SeptemberLong;
+
+import java.util.List;
+
+public class MINPERM {
+	static void permute(List<Integer> arr, int loc) {
+		
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,86 @@
+package me.samfreeman.SeptemberLong;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class MINPERM {
+
+	static BufferedReader in;
+	static PrintStream out;
+	static boolean hasFound = false;
+
+	static void permute(List<Integer> arr, int loc) {
+		if (!hasFound) {
+			for (int i = loc; i < arr.size(); i++) {
+				Collections.swap(arr, i, loc);
+				permute(arr, loc + 1);
+				Collections.swap(arr, loc, i);
+			}
+
+			if (loc == arr.size() - 1) {
+				boolean allow = true;
+				for (int x = 0; x < arr.size(); x++) {
+					if (x + 1 == arr.get(x)) {
+						allow = false;
+						break;
+					}
+				}
+				if (allow) {
+					hasFound = true;
+					for (int j : arr) {
+						out.print(j + " ");
+					}
+					out.println();
+				}
+			}
+		}
+	}
+
+	static void solve(int size) {
+		int[] ars = new int[size];
+		if (size % 2 == 0) {
+			// even
+			// just swap in pairs of 2 (1 -> 2, 2 -> 1, 3 -> 4, 4 -> 3)
+			for (int i = 0; i < size; i++) {
+				// odd goes up, even goes down
+				if ((i+1) % 2 == 0) {
+					ars[i-1] = i + 1;
+				} else {
+					ars[i+1] = i + 1;
+				}
+			}
+			
+		} else {
+			// odd
+			// same as up to the last three, where n-2 -> n, n and n-1 -> n-2, and n -> n-1
+		}
+		for (int a : ars) {
+			out.print(a + " ");
+		}
+	}
+	
+	public static void main(String[] args) throws IOException {
+		in = new BufferedReader(new InputStreamReader(System.in));
+		out = new PrintStream(System.out);
+		int t = Integer.parseInt(in.readLine());
+		while (t-- > 0) {
+			hasFound = false;
+			int size = Integer.parseInt(in.readLine());
+			solve(size);
+			/*List<Integer> ar = new ArrayList<>();
+			for (int i = 0; i < size; i++) {
+				ar.add(i + 1);
+			}
+			ar.set(0, 2);
+			ar.set(1, 1);
+			permute(ar, 1);*/
+
+		}
+		out.close();
+	}
+}

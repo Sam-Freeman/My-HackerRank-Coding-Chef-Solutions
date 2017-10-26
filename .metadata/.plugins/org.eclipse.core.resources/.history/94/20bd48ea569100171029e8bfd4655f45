@@ -1,0 +1,55 @@
+package me.samfreeman.SeptemberLong;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class MINPERM {
+	
+	static BufferedReader in;
+	static PrintStream out;
+	static List<Integer> aL = new ArrayList<Integer>();
+	static void permute(List<Integer> arr, int loc) {
+		//if (!(aL.size() > 0)) {
+			for (int i = loc+1; i < arr.size(); i++) {
+					Collections.swap(arr, i, loc);
+					permute(arr, loc+1);
+					Collections.swap(arr, loc, i);
+			}
+		
+			if (loc == arr.size() - 1) {
+				aL = arr;
+				for (int j : arr) {
+					out.print(j + " ");
+				}
+				out.println();
+			}
+		//}
+	}
+	
+	public static void main(String[] args) throws IOException {
+		in = new BufferedReader(new InputStreamReader(System.in));
+		out = new PrintStream(System.out);
+		//permute(Arrays.asList(1, 4, 2, 3, 5), 1);
+		int t = Integer.parseInt(in.readLine());
+		while (t-- > 0) {
+			aL.clear();
+			int size = Integer.parseInt(in.readLine());
+			List<Integer> ar = new ArrayList<>();
+			for (int i = 0; i < size; i++) {
+				ar.add(i+1);
+			}
+			System.out.println(ar.toArray(a));
+			//ar.set(0, 2);
+			//ar.set(1, 1);
+			permute(ar, 0);
+			
+		}
+		out.close();
+	}
+}

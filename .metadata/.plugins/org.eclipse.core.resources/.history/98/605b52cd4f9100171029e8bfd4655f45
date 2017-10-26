@@ -1,0 +1,37 @@
+package me.samfreeman.SeptemberLong;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class MINPERM {
+	
+	static BufferedReader in;
+	static PrintStream out;
+	
+	static void permute(List<Integer> arr, int loc) {
+		for (int i = loc; i < arr.size(); i++) {
+			Collections.swap(arr, i, loc);
+			permute(arr, loc+1);
+			Collections.swap(arr, loc, i);
+		}
+		if (loc == arr.size() - 1) {
+			System.out.println(Arrays.toString(arr.toArray()));
+		}
+	}
+	
+	public static void main(String[] args) throws IOException {
+		in = new BufferedReader(new InputStreamReader(System.in));
+		out = new PrintStream(System.out);
+		//permute(Arrays.asList(1, 4, 2, 3, 5), 1);
+		int t = Integer.parseInt(in.readLine());
+		while (t-- > 0) {
+			int size = Integer.parseInt(in.readLine());
+		}
+		out.close();
+	}
+}
